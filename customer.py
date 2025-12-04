@@ -4,7 +4,7 @@ from credit import Credit
 
 class Customer:
     def __init__(self, input_user):
-        self.username = self.setUsername(input_user)
+        self.username = input_user
         self.checking = self.setChecking()
         self.savings = self.setSavings()
         self.credit = self.setCredit()
@@ -15,6 +15,8 @@ class Customer:
             raise TypeError('Username must be a string.')
         elif not all(char.lower() in alpha for char in input_user):
             raise ValueError('Username must only contain letters and numbers.')
+        else:
+            self._username = input_user
 
     def getUsername(self):
         return self.username
