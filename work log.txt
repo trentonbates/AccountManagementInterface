@@ -2,3 +2,7 @@ Trenton
     - 12/4/2025 (3 hrs)
         Worked on account, checking, savings,
         credit, customer, and interface
+
+    - 12/10/2025 (1 hrs)
+        Worked on customer and interface mainly,
+        minor things in other classes
