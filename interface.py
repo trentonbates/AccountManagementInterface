@@ -22,11 +22,9 @@ def importData():
         temp_credit = Credit(customer['credit_id'], float(customer['credit_balance']), float(customer['credit_limit']))
         customers_dict[customer['username']] = Customer(temp_username, temp_checking, temp_savings, temp_credit)
 
-    print(customers_dict)
-
 def viewCustomers():
     global customers_dict
-    for key in customers_dict:
+    for key in customers_dict.keys():
         print(customers_dict[key])
 
 def deposit():

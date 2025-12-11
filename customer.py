@@ -19,7 +19,7 @@ class Customer:
             self._username = input_user
 
     def getUsername(self):
-        return self.username
+        return self._username
     
     def setChecking(self, input_checking):
         if not isinstance(input_checking, Checking):
@@ -28,7 +28,7 @@ class Customer:
             self._checking = input_checking
 
     def getChecking(self):
-        return self.checking
+        return self._checking
     
     def setSavings(self, input_savings):
         if not isinstance(input_savings, Savings):
@@ -37,7 +37,7 @@ class Customer:
             self._savings = input_savings
 
     def getSavings(self):
-        return self.savings
+        return self._savings
     
     def setCredit(self, input_credit):
         if not isinstance(input_credit, Credit):
@@ -46,15 +46,10 @@ class Customer:
             self._credit = input_credit
 
     def getCredit(self):
-        return self.credit
+        return self._credit
     
     def __str__(self):
-        result = f'Customer: {self.username}' 
-        + print(self.checking) 
-        + print(self.savings)
-        + print(self.credit)
-
-        return result
+        return f'Customer: {self.getUsername()}\n{print(self.getChecking())}\n{print(self.getSavings())}\n{print(self.getCredit())}'
     
     username = property(getUsername, setUsername)
     checking = property(getChecking, setChecking)

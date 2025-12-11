@@ -11,7 +11,7 @@ class Credit(Account):
             raise TypeError('Credit limit needs to be an int or a float.')
         elif input_limit < 0:
             raise ValueError('Credit limit cannot be negative.')
-        # elif input_limit < self.getBalance():
+        # elif self.balance < input_limit:
         #     raise ValueError('Credit limit cannot be lower than the current balance.')
         else:
             self._credit_limit = input_limit

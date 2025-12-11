@@ -2,7 +2,7 @@ class Account():
     def __init__(self, input_id, input_bal):
         self.account_id = input_id
         self.balance = input_bal
-        self.interest = 0.0
+        self._interest = 0.0
 
     def setAccountId(self, input_id):
         if not isinstance(input_id, str):
@@ -12,10 +12,10 @@ class Account():
         elif not all(char in '0123456789' for char in input_id):
             raise ValueError('AccountId needs to only contain numbers from 0-9.')
         else:
-            self._x = input_id
+            self._account_id = input_id
 
     def getAccountId(self):
-        return self.account_id
+        return self._account_id
 
     def setBalance(self, input_bal):
         if not isinstance(input_bal, (int, float)):
@@ -26,15 +26,13 @@ class Account():
             self._balance = input_bal
 
     def getBalance(self):
-        return self.balance
+        return self._balance
     
     def getInterest(self):
-        return self.interest
+        return self._interest
     
     def __str__(self):
-        return (f'AccountId: {self.getAccountId()}\n'
-                + f'Balance: ${self.getBalance()}\n'
-                + f'Interest: {self.getInterest() * 100}%\n')
+        return (f'AccountId: {self.getAccountId()}\nBalance: ${self.getBalance()}\nInterest: {self.getInterest() * 100}%\n')
 
     account_id = property(getAccountId, setAccountId)
     balance = property(getBalance, setBalance)
