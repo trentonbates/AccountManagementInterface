@@ -49,7 +49,7 @@ class Customer:
         return self._credit
     
     def __str__(self):
-        return f'Customer: {self.getUsername()}\n{print(self.getChecking())}\n{print(self.getSavings())}\n{print(self.getCredit())}'
+        return f'Customer: {self.getUsername()}\n{self.getChecking()}\n{self.getSavings()}\n{self.getCredit()}'
     
     username = property(getUsername, setUsername)
     checking = property(getChecking, setChecking)

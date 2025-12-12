@@ -1,3 +1,4 @@
+from sys import exit
 from os import system
 from csv import DictReader
 from checking import Checking
@@ -27,24 +28,38 @@ def viewCustomers():
     for key in customers_dict.keys():
         print(customers_dict[key])
 
-def deposit():
-    pass
+def balanceChange(deposit = True):
+    global customers_dict
+    customer_choice = ''
+    account_choice = ''
+    dollar_amount = 0.0
 
-def withdraw():
-    pass
+    while customer_choice not in customers_dict.keys():
+        for key in customers_dict.keys():
+            print(key)
 
-def creditCharge():
-    pass
+        customer_choice = input('Select a customer: ')
 
-def creditPayment():
-    pass
+    while account_choice.lower() not in ['checking', 'savings']:
+        account_choice = input('Checking or Savings? ')
+
+    while dollar_amount <= 0.0:
+        if deposit:
+            dollar_amount = int(input('Enter amount to deposit: '))
+        else:
+            dollar_amount = int(input('Enter amount to withdraw: '))
+
+    if account_choice.lower() == 'checking':
+        customers_dict[customer_choice].checking.deposit(dollar_amount)
+    else:
+        customers_dict[customer_choice].checking.withdraw(dollar_amount)
 
 def accountManagementInterface():
     system('cls')
     user_choice = -1
     print('Welcome to the Account Management Interface!\n')
 
-    while user_choice < 1 or user_choice > 8:
+    while user_choice < 1 or user_choice > 7:
         print('1. Import customer data\n'
               + '2. View all customers\n'
               + '3. Make a deposit\n'
@@ -52,25 +67,30 @@ def accountManagementInterface():
               + '5. Add charge to credit account\n'
               + '6. Make payment to credit account\n'
               + '7. Exit & export data\n')
-        user_choice = int(input('Enter a number from 1-7: '))
+        
+        while user_choice not in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
+            user_choice = input('Enter a number from 1-7: ')
+        
+        user_choice = int(user_choice)
+        print()
         
         if user_choice == 1:
             importData()
-            user_choice = -1
+            print()
         elif user_choice == 2:
             viewCustomers()
         elif user_choice == 3:
-            deposit()
+            balanceChange()
         elif user_choice == 4:
-            withdraw()
+            balanceChange(False)
         elif user_choice == 5:
-            creditCharge()
+            pass
         elif user_choice == 6:
-            creditPayment()
+            pass
         elif user_choice == 7:
             print('Goodbye!')
             exit()
-        else:
-            user_choice = int(input('Please enter a number between 1-7: '))
+        
+        user_choice = -1
 
 accountManagementInterface()

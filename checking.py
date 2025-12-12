@@ -6,4 +6,4 @@ class Checking(Account):
         self.interest = 0.0
 
     def __str__(self):
-        return f'Account Type: Checking\n{super.__str__(self)}'
+        return f'Account Type: Checking\n{super().__str__()}'

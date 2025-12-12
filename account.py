@@ -2,7 +2,7 @@ class Account():
     def __init__(self, input_id, input_bal):
         self.account_id = input_id
         self.balance = input_bal
-        self._interest = 0.0
+        self.interest = 0.0
 
     def setAccountId(self, input_id):
         if not isinstance(input_id, str):
@@ -26,13 +26,19 @@ class Account():
             self._balance = input_bal
 
     def getBalance(self):
-        return self._balance
+        return f'{self._balance:.2f}'
     
     def getInterest(self):
-        return self._interest
+        return self.interest
+    
+    def deposit(self, deposit_amount):
+        self.balance = float(self.balance) + deposit_amount
+
+    def withdraw(self, withdrawal_amount):
+        self.balance -= withdrawal_amount
     
     def __str__(self):
-        return (f'AccountId: {self.getAccountId()}\nBalance: ${self.getBalance()}\nInterest: {self.getInterest() * 100}%\n')
+        return (f'AccountId: {self.getAccountId()}\nBalance: ${self.getBalance()}\nInterest: {self.getInterest() * 100.0}%\n')
 
     account_id = property(getAccountId, setAccountId)
     balance = property(getBalance, setBalance)

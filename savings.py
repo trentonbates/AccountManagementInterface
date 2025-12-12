@@ -6,4 +6,4 @@ class Savings(Account):
         self.interest = 0.01
 
     def __str__(self):
-        return 'Account Type: Savings\n' + super().__str__()
+        return f'Account Type: Savings\n{super().__str__()}'

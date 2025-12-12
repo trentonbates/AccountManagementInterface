@@ -6,3 +6,6 @@ Trenton
     - 12/10/2025 (2 hrs)
         Worked on customer and interface mainly,
         minor things in other classes
+    
+    - 12/11/2025 (4? hrs)
+        Worked on various parts of project
